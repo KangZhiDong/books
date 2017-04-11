@@ -14,10 +14,10 @@ BOT_NAME = 'books'
 SPIDER_MODULES = ['books.spiders']
 NEWSPIDER_MODULE = 'books.spiders'
 
-# DBKWARGS={'db':'book','user':'root', 'passwd':'kzd337836629',
-#     'host':'localhost','use_unicode':True, 'charset':'utf8'}
-DBKWARGS={'db':'book','user':'book', 'passwd':'ibfbook',
-    'host':'192.168.24.250','use_unicode':True, 'charset':'utf8'}
+DBKWARGS={'db':'book','user':'root', 'passwd':'kzd337836629',
+    'host':'localhost','use_unicode':True, 'charset':'utf8'}
+# DBKWARGS={'db':'book','user':'book', 'passwd':'ibfbook',
+#     'host':'192.168.24.250','use_unicode':True, 'charset':'utf8'}
 
 ITEM_PIPELINES = {
    'books.pipelines.BooksPipeline': 300,

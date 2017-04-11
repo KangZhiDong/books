@@ -12,4 +12,6 @@ class BooksItem(Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     title = Field()
+    price = Field()
     content =Field()
+    bookurl = Field()

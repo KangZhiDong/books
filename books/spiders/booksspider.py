@@ -25,7 +25,7 @@ class book(CrawlSpider):
 
 
             yield  scrapy.Request(url=whichbook,callback=self.detail_parse,
-                                     meta={"title":title})
+                                     meta={"title":title,"bookurl":whichbook})
 
     def detail_parse(self,response):
             item = BooksItem()
@@ -42,10 +42,15 @@ class book(CrawlSpider):
             #content = reads.pop().replace("<li>", "")
 
             str_convert = ''.join(content)
+            price = selector.xpath('// *[ @ id = "book_cart_box"] / div[2] / div / div[1]/text()').extract()
+
+
             # print  123
             # print str_convert
             item['title'] = response.meta["title"]
+            item['price'] = price
             item['content'] = str_convert
+            item['bookurl'] = response.meta["bookurl"]
             yield item
 
 

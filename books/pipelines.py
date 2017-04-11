@@ -20,9 +20,9 @@ class BooksPipeline(object):
         DBKWARGS = spider.settings.get('DBKWARGS')
         con = MySQLdb.connect(**DBKWARGS)
         cur = con.cursor()
-        sql = ("insert into book(title,content)"
-               " values(%s,%s)")
-        lis = (item['title'],item['content'])
+        sql = ("insert into book(title,price,content,bookurl)"
+               " values(%s,%s,%s,%s)")
+        lis = (item['title'],item['price'],item['content'],item['bookurl'])
         try:
             cur.execute(sql,lis)
         except Exception,e:
